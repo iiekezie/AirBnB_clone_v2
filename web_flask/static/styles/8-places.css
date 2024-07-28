@@ -1,0 +1,22 @@
+/* Update the CSS to align the price and name correctly */
+.place {
+    position: relative;
+    border: 1px solid #DDD;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+.price_by_night {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #FF5A5F;
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+}
+.place h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HBNB</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/3-header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/3-footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/4-common.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/6-filters.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/8-places.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="HBNB logo">
+        </div>
+    </header>
+    <div class="container">
+        <div class="filters">
+            <h3>States</h3>
+            <h4>&nbsp;</h4>
+            <div class="popover">
+                <ul>
+                    {% for state in states %}
+                        <li>{{ state.name }}
+                            <ul>
+                                {% for city in state.cities %}
+                                    <li>{{ city.name }}</li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <h3>Amenities</h3>
+            <h4>&nbsp;</h4>
+            <div class="popover">
+                <ul>
+                    {% for amenity in amenities %}
+                        <li>{{ amenity.name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="places">
+            {% for place in places %}
+                <div class="place">
+                    <div class="price_by_night">${{ place.price_by_night }}</div>
+                    <h2>{{ place.name }}</h2>
+                    <div class="information">
+                        <div class="max_guest">{{ place.max_guest }} Guests</div>
+                        <div class="number_rooms">{{ place.number_rooms }} Bedrooms</div>
+                        <div class="number_bathrooms">{{ place.number_bathrooms }} Bathrooms</div>
+                    </div>
+                    <div class="description">
+                        {{ place.description | safe }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <footer>
+        <div class="footer">
+            <img src="{{ url_for('static', filename='images/icon.png') }}" alt="HBNB icon">
+        </div>
+    </footer>
+</body>
+</html>
